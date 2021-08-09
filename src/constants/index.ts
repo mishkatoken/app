@@ -190,7 +190,7 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
+  [ChainId.MAINNET]: [USDC, USDT],
   [ChainId.RINKEBY]: [],
   [ChainId.AVALANCHE]: [zZERO, AVAX as Token, zUSDC, zUSDT, zDAI, zETH],
   [ChainId.SMART_CHAIN]: [bscZERO, BNB as Token, bscBUSD, bscDAI, bscUSDC, bscUSDT, bscETH],
@@ -305,7 +305,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
 export const NetworkContextName = 'NETWORK'
 
 // default allowed slippage, in bips
-export const INITIAL_ALLOWED_SLIPPAGE = 50
+export const INITIAL_ALLOWED_SLIPPAGE = 1000
 // 300 minutes, denominated in seconds
 export const DEFAULT_DEADLINE_FROM_NOW = 60 * 300
 

@@ -143,25 +143,25 @@ export default function SideMenu() {
             </IconLink>
             <span className={pathname === '/swap' ? 'active' : ''}>{t('Swap')}</span>
           </StyledNavLink>
-          {/* <StyledNavLink id={`transfer-nav-link`} to={'/transfer'} onClick={handleSideMenuOpen}>
+          <StyledNavLink id={`transfer-nav-link`} to={'/#'} onClick={handleSideMenuOpen}>
             <IconLink>
               <Icon icon="bridges" active={pathname === '/transfer'} />
             </IconLink>
             <span className={pathname === '/transfer' ? 'active' : ''}>{t('Transfer')}</span>
-          </StyledNavLink> */}
-          <StyledNavLink id={`pools-nav-link`} to={'/pools'} onClick={handleSideMenuOpen}>
+          </StyledNavLink>
+          <StyledNavLink id={`pools-nav-link`} to={'/#'} onClick={handleSideMenuOpen}>
             <IconLink>
               <Icon icon="earn" active={pathname === '/pools'} />
             </IconLink>
             <span className={pathname === '/pools' ? 'active' : ''}>{t('Pools')}</span>
           </StyledNavLink>
-          <HeaderExternalLink href={`https://charts.0.exchange`}>
+          <HeaderExternalLink href={`https://#`}>
             <IconLink>
               <Icon icon="charts" />
             </IconLink>
             {t('Charts')}
           </HeaderExternalLink>
-          <StyledNavLink id={`pools-nav-link`} to={'/zero-gravity'} onClick={handleSideMenuOpen}>
+          <StyledNavLink id={`pools-nav-link`} to={'/#'} onClick={handleSideMenuOpen}>
             <IconLink>
               <Icon icon="planet" active={pathname.includes('zero-gravity')} />
             </IconLink>

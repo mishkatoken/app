@@ -109,7 +109,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
     slippageError = SlippageError.InvalidInput
   } else if (slippageInputIsValid && rawSlippage < 50) {
     slippageError = SlippageError.RiskyLow
-  } else if (slippageInputIsValid && rawSlippage > 500) {
+  } else if (slippageInputIsValid && rawSlippage > 1000) {
     slippageError = SlippageError.RiskyHigh
   } else {
     slippageError = undefined
@@ -157,31 +157,31 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
           <Option
             onClick={() => {
               setSlippageInput('')
-              setRawSlippage(10)
-            }}
-            active={rawSlippage === 10}
-          >
-            0.1%
-          </Option>
-          <Option
-            onClick={() => {
-              setSlippageInput('')
-              setRawSlippage(50)
-            }}
-            active={rawSlippage === 50}
-          >
-            0.5%
-          </Option>
-          <Option
-            onClick={() => {
-              setSlippageInput('')
               setRawSlippage(100)
             }}
             active={rawSlippage === 100}
           >
             1%
           </Option>
-          <OptionCustom active={![10, 50, 100].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1}>
+          <Option
+            onClick={() => {
+              setSlippageInput('')
+              setRawSlippage(500)
+            }}
+            active={rawSlippage === 500}
+          >
+            5%
+          </Option>
+          <Option
+            onClick={() => {
+              setSlippageInput('')
+              setRawSlippage(1000)
+            }}
+            active={rawSlippage === 1000}
+          >
+            10%
+          </Option>
+          <OptionCustom active={![100, 500, 1000].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1}>
             <RowBetween>
               {!!slippageInput &&
               (slippageError === SlippageError.RiskyLow || slippageError === SlippageError.RiskyHigh) ? (

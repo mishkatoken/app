@@ -20,3 +20,23 @@ export async function get(path, params = {}) {
     })
   return response
 }
+
+export async function post(path, params = {}) {
+  const response = await axios({
+    method: 'post',
+    url: `${path}`,
+    params,
+    headers: {
+      'x-api-key': 'BQY8IPItkNCP0iK8BqvmhSWV1pxpFqrB',
+      responseType: 'json'
+    }
+  })
+    .then(res => res.data)
+    .catch(e => {
+      return {
+        hasError: true,
+        ...e
+      }
+    })
+  return response
+}

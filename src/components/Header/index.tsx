@@ -267,7 +267,8 @@ const Header = () => {
       <ClaimModal />
       <HideMedium>
         <LogoContainer>
-          <img src={ZeroLogo} alt="Zero logotype" />
+          {/* <img src={ZeroLogo} alt="Zero logotype" /> */}
+          <h1>Mishka</h1>
         </LogoContainer>
       </HideMedium>
       {account ? (

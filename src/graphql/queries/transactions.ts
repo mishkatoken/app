@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 const transactions = gql`
-  query Transactions($first: Int!, $skip: Int!) {
-    transactions(first: $first, skip: $skip, orderBy: timestamp, orderDirection: desc) {
-      mints(orderBy: timestamp, orderDirection: desc) {
+  query Transactions($ids: [String!]) {
+    transactions(orderBy: timestamp, orderDirection: desc, where: { id_in: $ids }) {
+      mints(orderBy: timestamp, orderDirection: desc, where: { pair_in: ["0x68ca62c3c0cc90c6501181d625e94b4f0fdc869c"] }) {
         transaction {
           id
           timestamp
@@ -28,7 +28,7 @@ const transactions = gql`
         amountUSD
         __typename
       }
-      burns(orderBy: timestamp, orderDirection: desc) {
+      burns(orderBy: timestamp, orderDirection: desc, where: { pair_in: ["0x68ca62c3c0cc90c6501181d625e94b4f0fdc869c"] }) {
         transaction {
           id
           timestamp
@@ -54,7 +54,7 @@ const transactions = gql`
         amountUSD
         __typename
       }
-      swaps(orderBy: timestamp, orderDirection: desc) {
+      swaps(orderBy: timestamp, orderDirection: desc, where: { pair_in: ["0x68ca62c3c0cc90c6501181d625e94b4f0fdc869c"] }) {
         transaction {
           id
           timestamp

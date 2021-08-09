@@ -1,6 +1,6 @@
 import { ButtonLight, ButtonPrimary } from 'components/Button'
 import React, { useEffect, useState } from 'react'
-import { getTVLData, getTVLHistory, getWalletHolderCount } from 'api'
+import { getTVLData, getTVLHistory, getWalletHolderCount, getMishkaInfo } from 'api'
 
 import Bubble from './../../components/Bubble'
 import BubbleChart from './../../components/BubbleChart'
@@ -14,20 +14,23 @@ import styled from 'styled-components'
 import transactions from '../../graphql/queries/transactions'
 import { useQuery } from '@apollo/client'
 import useWindowDimensions from './../../hooks/useWindowDimensions'
+import zeroDayDatas from '../../graphql/queries/zeroDayDatas'
 import { dateFormatted } from 'utils/getFormattedMonth'
 import { Title } from '../../theme'
+import mishkaTransactions from 'graphql/queries/mishkaTransactions'
+import mishkaPair from 'graphql/queries/mishkaPair'
 
 const BubbleMarginWrap = styled.div`
   display: flex;
   gap: 1rem;
   ${({ theme }) => theme.mediaWidth.upToMedium`
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  `};
-    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-  gap: 0.1rem;
-  `};
+ width: 100%;
+ justify-content: space-between;
+ align-items: center;
+`};
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+ gap: 0.1rem;
+`};
 `
 const Flex = styled.div<{ isColumn: boolean }>`
   margin: 20px auto 0;
@@ -92,6 +95,7 @@ function fnum(x: number) {
 
 export default function Home() {
   const [pagination, setPagination] = useState<number>(0)
+  const [mishkaTxIds, setMishkaTxIds] = useState<string[]>([])
   const [walletHolderCount, setWalletHolderCount] = useState<number>(0)
   const [totalValue, setTotalValue] = useState<number>(26285647.16)
   const [loadingWC, setLoadingWC] = useState(true)
@@ -99,18 +103,29 @@ export default function Home() {
   const [tvlData, setTvlData] = useState<TVLHistoryData[]>([])
 
   const { width } = useWindowDimensions()
-  const transactionsData = useQuery(transactions, {
+  // const zeroData = useQuery(zeroDayDatas)
+  const mishkaTransactionsData = useQuery(mishkaTransactions, {
     variables: {
       first: 12,
       skip: pagination * 12
     }
   })
+  const transactionsData = useQuery(transactions, {
+    variables: {
+      ids: mishkaTxIds
+    }
+  })
+  const mishkaPairData = useQuery(mishkaPair, {
+    variables: {}
+  })
 
   const getWalletHoldersData = async () => {
-    const res = await getWalletHolderCount()
+    const res = await getMishkaInfo()
+    // const res = await getWalletHolderCount()
     setLoadingWC(false)
     if (!res.hasError) {
-      setWalletHolderCount(res?.total)
+      setWalletHolderCount(res?.data.ethereum.transfers[0].sender_count)
+      // setWalletHolderCount(res?.total)
     }
   }
 
@@ -131,8 +146,22 @@ export default function Home() {
   useEffect(() => {
     getHistoryTVL()
     getWalletHoldersData()
-    getTVL()
+    // getTVL()
   }, [])
+  useEffect(() => {
+    if (!mishkaTransactionsData.loading && !mishkaTransactionsData.error) {
+      const list = mishkaTransactionsData.data.swaps.map((transaction: any) => {
+        return transaction.transaction.id
+      })
+      setMishkaTxIds(list)
+    }
+  }, [mishkaTransactionsData])
+  useEffect(() => {
+    if (!mishkaPairData.loading && !mishkaPairData.error) {
+      setLoadingTV(false)
+      setTotalValue(mishkaPairData.data.pair.reserveUSD)
+    }
+  }, [mishkaPairData])
 
   const isColumn = width < 1500
 
@@ -157,7 +186,7 @@ export default function Home() {
       <Title>Exchange</Title>
       <PageContainer>
         <Flex isColumn={isColumn}>
-          {!tvlData.length ? (
+          {/* {!tvlData.length ? (
             <CenterWrap>
               <CustomLightSpinner src={Circle} alt="loader" size={'90px'} />
             </CenterWrap>
@@ -170,7 +199,7 @@ export default function Home() {
                 value={lastDataPoint}
                 series={reverseSeries}
                 percentage={perc}
-              />
+              /> */}
               <BubbleMarginWrap>
                 {loadingTV || loadingWC ? (
                   <CenterWrap>
@@ -194,8 +223,8 @@ export default function Home() {
                   </>
                 )}
               </BubbleMarginWrap>
-            </>
-          )}
+            {/* </>
+          )} */}
         </Flex>
         {transactionsData.loading || !transactionsData.data?.transactions ? (
           <CenterWrap>
@@ -210,7 +239,7 @@ export default function Home() {
                   <ButtonLight onClick={onClickPrevPage}>Back</ButtonLight>
                 </Button>
               )}
-              {transactionsData.data?.transactions.length >= 12 && (
+              {mishkaTransactionsData.data?.swaps.length >= 12 && (
                 <Button>
                   <ButtonPrimary onClick={onClickNextPage}>Next</ButtonPrimary>
                 </Button>

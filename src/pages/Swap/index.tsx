@@ -91,7 +91,7 @@ const SwapFlexRow = styled.div`
 const SwapWrap = styled.div`
   font-family: Poppins;
   position: relative;
-  width: 465px;
+  width: 620px;
   max-width: 100%;
   padding: 28px 34px;
   min-height: 570px;

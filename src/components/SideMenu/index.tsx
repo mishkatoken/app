@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom'
 import { DollarSign } from 'react-feather'
 import { ExternalLink } from '../../theme'
 import Icon from '../Icon'
-import LogoDark from './../../assets/images/0-icon.png'
+import LogoDark from './../../assets/images/mishka-icon.png'
 import MenuBurger from './../MenuBurger'
 import ModalMore from './../ModalMore'
 import { NavLink } from 'react-router-dom'
@@ -97,9 +97,9 @@ const MoreLink = styled.span`
 const Title = styled.a`
   position: absolute;
   top: 32px;
-  left: 97px;
-  width: 66px;
-  height: 66px;
+  left: 50px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
   ${({ theme }) => theme.mediaWidth.upToMedium`
   display: none;
@@ -143,7 +143,7 @@ export default function SideMenu() {
             </IconLink>
             <span className={pathname === '/swap' ? 'active' : ''}>{t('Swap')}</span>
           </StyledNavLink>
-          <StyledNavLink id={`transfer-nav-link`} to={'/#'} onClick={handleSideMenuOpen}>
+          {/* <StyledNavLink id={`transfer-nav-link`} to={'/#'} onClick={handleSideMenuOpen}>
             <IconLink>
               <Icon icon="bridges" active={pathname === '/transfer'} />
             </IconLink>
@@ -167,13 +167,13 @@ export default function SideMenu() {
             </IconLink>
             <span className={pathname.includes('zero-gravity') ? 'active' : ''}>{t('Zero Gravity')}</span>
           </StyledNavLink>
-          {/* <StyledNavLink id={`staking-nav-link`} to={'/staking'} onClick={hanldeSidemenuOpen}>
+          <StyledNavLink id={`staking-nav-link`} to={'/staking'} onClick={hanldeSidemenuOpen}>
             <IconLink>
               <Icon icon="market" active={pathname === '/staking'} />
             </IconLink>
 
             <span className={pathname === '/staking' ? 'active' : ''}>{t('Staking')}</span>
-          </StyledNavLink> */}
+          </StyledNavLink>
           <HeaderExternalLink href={`https://buy.0.exchange`} style={{ marginTop: '3rem' }}>
             <IconLink>
               <DollarSign size={20} />
@@ -185,7 +185,7 @@ export default function SideMenu() {
               <Icon icon="more" />
             </IconLink>
             {t('More ...')}
-          </MoreLink>
+          </MoreLink> */}
         </HeaderLinks>
       </SideMenuWrapper>
     </>

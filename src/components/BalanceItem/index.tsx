@@ -18,8 +18,11 @@ import { useCurrencyBalance } from '../../state/wallet/hooks'
 
 const BalanceCard = styled.div`
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   height: 111.5px;
+  width: 75%;
   width: 100%;
   background: rgba(47, 53, 115, 0.32);
   box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.095);

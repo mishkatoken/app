@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom'
 import { DollarSign } from 'react-feather'
 import { ExternalLink } from '../../theme'
 import Icon from '../Icon'
-import LogoDark from './../../assets/images/0-icon.png'
+import LogoDark from './../../assets/images/mishka-icon.png'
 import MenuBurger from './../MenuBurger'
 import ModalMore from './../ModalMore'
 import { NavLink } from 'react-router-dom'
@@ -97,9 +97,9 @@ const MoreLink = styled.span`
 const Title = styled.a`
   position: absolute;
   top: 32px;
-  left: 97px;
-  width: 66px;
-  height: 66px;
+  left: 50px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
   ${({ theme }) => theme.mediaWidth.upToMedium`
   display: none;

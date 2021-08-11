@@ -20,6 +20,7 @@ const Title = styled.h2`
   font-weight: bold;
   font-family: Poppins;
   margin-right: 30px;
+  color: #916461;
   ${({ theme }) => theme.mediaWidth.upToSmall`
   font-size: 20px;
 `};

@@ -545,7 +545,7 @@ export default function Swap({
 
   return (
     <>
-      <Title>Trade</Title>
+      <Title>Swap</Title>
       <PageContainer>
         <SwapOuterWrap>
           <TokenWarningModal

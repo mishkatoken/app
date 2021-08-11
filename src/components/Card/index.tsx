@@ -20,7 +20,8 @@ export const LightCard = styled(Card)`
 `
 
 export const GreyCard = styled(Card)`
-  background: rgba(47, 53, 115, 0.32);
+  // background: rgba(47, 53, 115, 0.32);
+  background: #3f3526;
   box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.095);
   backdrop-filter: blur(28px);
   border-radius: 30px;

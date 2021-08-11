@@ -83,6 +83,7 @@ padding: 0;
 
 const SubTitle = styled.h2`
   font-size: 32px;
+  color: #916461;
 `
 const SwapFlexRow = styled.div`
   flex: 1;

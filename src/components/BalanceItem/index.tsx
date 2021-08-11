@@ -18,13 +18,11 @@ import { useCurrencyBalance } from '../../state/wallet/hooks'
 
 const BalanceCard = styled.div`
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
   height: 111.5px;
-  width: 75%;
   width: 100%;
-  background: rgba(47, 53, 115, 0.32);
+  // background: rgba(47, 53, 115, 0.32);
+  background: #865b54;
   box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.095);
   border-radius: 44px;
   display: flex;
@@ -52,14 +50,14 @@ const CrossChain = styled.div`
   font-size: 1.5rem;
   span {
     margin-left: 10px;
-    color: #929ad6;
+    // color: #929ad6;
     opacity: 0.8;
     font-size: 1rem;
   }
 `
 const AddressWallet = styled.div`
   font-size: 17px;
-  color: #a7b1f4;
+  color: #ffffffff;
   font-weight: bold;
 `
 const BoxFlex = styled.div`
@@ -176,7 +174,7 @@ export default function BalanceItem({
     (!isStaked && !isNative && hasABalance) ||
     (isStaked && ((isContained && !hasABalance) || !isContained)) ? (
     <BalanceCard onClick={selectBalance} className={isLast ? 'last' : isFirst ? 'first' : ''}>
-      <BubbleBase />
+      <BubbleBase mode="button" />
       <BoxFlex>
         {isNative ? <StyledEthereumLogo src={returnChainLogo()} /> : <CurrencyLogo size="48px" currency={token} />}
         <Box>

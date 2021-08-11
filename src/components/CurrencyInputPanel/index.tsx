@@ -136,7 +136,8 @@ const SmallStyledDropDown = styled(SmallDropDown)<{ selected: boolean }>`
 const InputPanel = styled.div<{ hideInput?: boolean; transferPage?: boolean }>`
   ${({ theme }) => theme.flexColumnNoWrap}
   position: relative;
-  background: ${({ transferPage }) => (transferPage ? 'rgba(18, 21, 56, 0.24)' : 'rgba(18, 21, 56, 0.54)')};
+  background: ${({ transferPage }) => (transferPage ? '#b8744d3d' : '#b8744d8a')};
+  // background: ${({ transferPage }) => (transferPage ? 'rgba(18, 21, 56, 0.24)' : 'rgba(18, 21, 56, 0.54)')};
   box-shadow: ${({ transferPage }) =>
     transferPage ? 'inset 2px 2px 5px rgba(255, 255, 255, 0.12)' : 'inset 2px 2px 5px rgba(255, 255, 255, 0.095)'};
   backdrop-filter: blur(28px);

@@ -16,7 +16,7 @@
   height: 100%;
   left: 0; top: 0;
   pointer-events: none;
-  background: black;
+  background: #efc184;
   z-index: 0;
   opacity: .2;
 }

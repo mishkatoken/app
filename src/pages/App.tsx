@@ -92,7 +92,7 @@ export default function App() {
       <GraphQLProvider>
         <Route component={DarkModeQueryParamReader} />
         <AppWrapper>
-          <SideMenu />
+          {/* <SideMenu /> */}
           <div className="snow-bg"></div>
           <div className="bg-darken"></div>
 
@@ -135,7 +135,8 @@ export default function App() {
                 <Route exact strict path="/zero-gravity" component={ZeroGravityList} />
                 <Route exact strict path="/zero-gravity/:idoURL" component={ZeroGravityInfo} />
                 <Route exact strict path="/zero-gravity/:idoURL/kyc" component={ZeroGravityKyc} />
-                <Route component={RedirectPathToHomeOnly} />
+                {/* <Route component={RedirectPathToHomeOnly} /> */}
+                <Route component={RedirectPathToSwapOnly} />
               </Switch>
             </Web3ReactManager>
           </BodyWrapper>

@@ -92,7 +92,7 @@ const Aligner = styled.span`
 `
 const SectionLabel = styled.span`
   display: flex;
-  color: #a7b1f4 !important;
+  color: #906461 !important;
   font-weight: bold;
   cursor: auto;
   opacity: 0.56;

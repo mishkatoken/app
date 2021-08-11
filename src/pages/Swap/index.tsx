@@ -144,7 +144,7 @@ const BalanceRow = styled.div<{ isColumn?: boolean }>`
   min-width: 300px;
   max-height: 570px;
   border-radius: 44px;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-right: 1rem;
   padding-left: 1rem;
   margin-left: 2rem;
@@ -705,7 +705,7 @@ export default function Swap({
                   <Flex>
                     <BottomGroupingSwap>
                       {!account ? (
-                        <ButtonLight onClick={toggleWalletModal}>Connect Wallet</ButtonLight>
+                        <ButtonLight style={{ background: "#865b54" }} onClick={toggleWalletModal}>Connect Wallet</ButtonLight>
                       ) : !(formattedAmounts[Field.INPUT] || formattedAmounts[Field.OUTPUT]) ? (
                         <GreyCard
                           style={{
@@ -717,7 +717,7 @@ export default function Swap({
                             paddingBottom: 0
                           }}
                         >
-                          <TYPE.main mb="4px" style={{ lineHeight: '58px' }}>
+                          <TYPE.main mb="4px" style={{ lineHeight: '58px', color: 'white' }}>
                             Enter A Trade
                           </TYPE.main>
                         </GreyCard>

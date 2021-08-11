@@ -63,7 +63,7 @@ const Web3StatusGeneric = styled(ButtonSecondary)`
 // `
 
 const Web3StatusConnect = styled(Web3StatusGeneric) <{ faded?: boolean }>`
-  background-color: ${({ theme }) => theme.primary4};
+  // background-color: ${({ theme }) => theme.primary4};
   border: none;
   color: ${({ theme }) => theme.primaryText1};
   font-weight: 500;
@@ -77,7 +77,8 @@ const Web3StatusConnect = styled(Web3StatusGeneric) <{ faded?: boolean }>`
   ${({ faded }) =>
     faded &&
     css`
-      background: rgba(103, 82, 247, 0.18);
+      // background: rgba(103, 82, 247, 0.18);
+      background: #865b54;
       border: 1px solid #6752F7;
       box-sizing: border-box;
       backdrop-filter: blur(7px);

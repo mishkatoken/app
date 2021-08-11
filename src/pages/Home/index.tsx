@@ -183,7 +183,7 @@ export default function Home() {
 
   return (
     <>
-      <Title>Exchange</Title>
+      {/* <Title>Exchange</Title> */}
       <PageContainer>
         <Flex isColumn={isColumn}>
           {/* {!tvlData.length ? (

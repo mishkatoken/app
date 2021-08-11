@@ -46,6 +46,8 @@ export function colors(darkMode: boolean): Colors {
     text3: darkMode ? '#6C7284' : '#888D9B',
     text4: darkMode ? '#565A69' : '#C3C5CB',
     text5: darkMode ? '#2C2F36' : '#EDEEF2',
+    text6: darkMode ? '#b97b47' : '#EDEEF2',
+    text6Active: darkMode ? '#160807': 'DAF7F8',
 
     // backgrounds / greys
     bg1: darkMode ? 'rgba(18, 21, 56, 0.54)' : '#FFFFFF',
@@ -221,6 +223,9 @@ h1,h2,h3,h4,h5{
   margin: 0px;
   font-family: 'Poppins', sans-serif;
 }
+h1.title,h2.title,h3.title,h4.title,h5.title{
+  color: #916461;
+}
 h1{
   font-weight: 900;
   font-size: 80px;
@@ -235,12 +240,13 @@ html {
 
 body {
   min-height: 100vh;
-  background: #2C3168;
-  background: linear-gradient(116.27deg, #2C3168 6.4%, #0E1130 100%);
+  background: #efc184;
+  background: linear-gradient(116.27deg, #efc184 64%, #efc184 100%);
 }
 `
 
 export const Title = styled.h1`
+color: #916461;
 width: 100%;
 padding: 0px 64px;
 ${({ theme }) => theme.mediaWidth.upToMedium`

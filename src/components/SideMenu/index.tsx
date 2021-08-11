@@ -17,7 +17,8 @@ const SideMenuWrapper = styled.div<{ open?: boolean }>`
   width: 260px;
   display: flex;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.35);
+  // background: rgba(0, 0, 0, 0.35);
+  background: #f9c07c;
   justify-content: center;
 
   ${({ theme }) => theme.mediaWidth.upToMedium<{ open?: boolean }>`
@@ -57,15 +58,18 @@ const StyledNavLink = styled(NavLink).attrs({
   text-transform: uppercase;
   font-size: 13px;
   text-decoration: none;
-  color: ${({ theme }) => theme.text2};
+  color: ${({ theme }) => theme.text6};
   width: fit-content;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
   font-family: 'Poppins', sans-serif;
   margin-bottom: 1.5rem;
+  &:hover {
+    color: ${({ theme }) => theme.text6Active};
+  }
   span {
     &.active {
-      color: ${({ theme }) => theme.white};
+      color: ${({ theme }) => theme.text6Active};
     }
   }
 `

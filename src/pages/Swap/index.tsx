@@ -100,7 +100,8 @@ const SwapWrap = styled.div`
   box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.095);
   backdrop-filter: blur(28px);
   border-radius: 44px;
-  margin-right: 2rem;
+  // margin-right: 2rem;
+  margin: 0 auto;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     margin-top: 20px
     margin-right: auto;
@@ -146,6 +147,7 @@ const BalanceRow = styled.div<{ isColumn?: boolean }>`
   overflow-y: scroll;
   padding-right: 1rem;
   padding-left: 1rem;
+  margin-left: 2rem;
   #style-7::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.5);

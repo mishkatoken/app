@@ -308,7 +308,7 @@ export function CurrencySearch({
                       <ExternalLink
                         style={{ marginLeft: '0.3rem' }}
                         id="coingecko-link"
-                        href="https://www.coingecko.com/en/coins/zero-exchange"
+                        href="https://www.coingecko.com/en/coins/mishka-token"
                       >
                         <Info size={14} />
                       </ExternalLink>

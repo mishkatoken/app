@@ -119,7 +119,7 @@ export default function Menu() {
             <MessageCircle size={14} />
             Discord
           </MenuItem>
-          <MenuItem id="coingecko-link" href="https://www.coingecko.com/en/coins/zero-exchange">
+          <MenuItem id="coingecko-link" href="https://www.coingecko.com/en/coins/mishka-token">
             <img style={{ float: 'left', width: '14px', height: '14px', marginRight: '9px', marginTop: '3px' }}src="/images/coingecko.png" />
             CoinGecko
           </MenuItem>

@@ -129,7 +129,7 @@ export default function ModalMore({ isOpen, onDismiss }: ModalMoreProps) {
           Discord
         </MenuItem>
 
-        <MenuItem id="link" href="https://www.coingecko.com/en/coins/zero-exchange">
+        <MenuItem id="link" href="https://www.coingecko.com/en/coins/mishka-token">
           <IconLink>
             <img alt="coingecko" style={{ float: 'left', width: '20px', height: '20px' }} src="/images/coingecko.png" />
           </IconLink>

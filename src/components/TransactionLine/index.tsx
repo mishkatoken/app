@@ -109,7 +109,7 @@ const TransactionLine = ({ mints, burns, swaps }: TransactionLineProps) => {
           token1: swaps[0].pair.token1,
           type: `Swap ${swaps[0].pair.token0.symbol} / ${swaps[0].pair.token1.symbol}`,
           totalValue: swaps[0].amountUSD,
-          amount0: swaps[0].amount0Out,
+          amount0: swaps[0].amount0In,
           amount1: swaps[0].amount1Out,
           transaction: swaps[0].transaction.id,
           date: new Date(Number(swaps[0].transaction.timestamp) * 1000)
@@ -124,7 +124,7 @@ const TransactionLine = ({ mints, burns, swaps }: TransactionLineProps) => {
 
   if (!data.transaction) return null
 
-  const { type, totalValue, amount1, transaction, date, token0, token1 } = data
+  const { type, totalValue, amount0, amount1, transaction, date, token0, token1 } = data
 
   return (
     <>
@@ -147,7 +147,7 @@ const TransactionLine = ({ mints, burns, swaps }: TransactionLineProps) => {
 
         {width < 720 && isOpen && (
           <>
-            <TextColumnRight>${Number(totalValue).toFixed(2)}</TextColumnRight>
+            <TextColumnRight>${Number(amount0).toFixed(2)}</TextColumnRight>
             <TextColumnRight>{Number(amount1).toFixed(6)}</TextColumnRight>
             <TextColumnRight style={{ color: '#1CB0F9', position: 'relative' }}>
               {width > 1424
@@ -203,10 +203,10 @@ const TransactionLine = ({ mints, burns, swaps }: TransactionLineProps) => {
         <>
           <Text>
             {width > 1424
-              ? Number(totalValue).toFixed(8)
+              ? Number(amount0).toFixed(8)
               : width > 1000
-              ? Number(totalValue).toFixed(4)
-              : Number(totalValue).toFixed(2)}
+              ? Number(amount0).toFixed(4)
+              : Number(amount0).toFixed(2)}
           </Text>
           <Text>{Number(amount1).toFixed(6)}</Text>
           <TextTransition>

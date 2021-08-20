@@ -7,7 +7,7 @@ import Card, { GreyCard } from '../../components/Card'
 import { ChainId, CurrencyAmount, JSBI, Token, Trade } from '@zeroexchange/sdk'
 import Column, { AutoColumn } from '../../components/Column'
 import { GetTokenByAddrAndChainId, useCrossChain, useCrosschainState } from '../../state/crosschain/hooks'
-import { LinkStyledButton, TYPE, Title } from '../../theme'
+import { LinkStyledButton, TYPE } from '../../theme'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useStakingInfo } from '../../state/stake/hooks'
 import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
@@ -57,6 +57,24 @@ import { useETHBalances } from '../../state/wallet/hooks'
 import { useSwapCallback } from '../../hooks/useSwapCallback'
 import { useUserAddedTokens } from '../../state/user/hooks'
 import useWindowDimensions from './../../hooks/useWindowDimensions'
+
+const Title = styled.h1`
+color: #916461;
+width: 100%;
+padding: 0px 64px;
+${({ theme }) => theme.mediaWidth.upToMedium`
+padding: 0;
+text-align: center;
+font-size: 49px;
+margin-top: 10px;
+margin-bottom: 0px;
+@media only screen and (max-width:960px) {
+  &:before {
+    content: "Mishka ";
+  }
+}
+`};
+`
 
 const CrossChainLabels = styled.div`
   p {
@@ -147,7 +165,6 @@ const BalanceRow = styled.div<{ isColumn?: boolean }>`
   overflow-y: auto;
   padding-right: 1rem;
   padding-left: 1rem;
-  margin-left: 2rem;
   #style-7::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.5);

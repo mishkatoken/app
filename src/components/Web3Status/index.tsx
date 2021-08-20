@@ -74,6 +74,10 @@ const Web3StatusConnect = styled(Web3StatusGeneric) <{ faded?: boolean }>`
     filter: brightness(1.3) !important;
   }
 
+  @media only screen and (max-width:960px) {
+    display: none;
+  }
+
   ${({ faded }) =>
     faded &&
     css`
